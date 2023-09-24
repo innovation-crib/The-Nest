@@ -7,6 +7,9 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    environment: 
+      name: ${{ github.event.number }}-preview
+      url: ${{ steps.deploy.outputs.details_url}}
     steps:
       - uses: actions/checkout@v3
       - uses: pnpm/action-setup@v2
@@ -22,7 +25,9 @@ jobs:
       - name: Build
         run: pnpx nx build the-nest
       - uses: FirebaseExtended/action-hosting-deploy@v0
+        id: deploy
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_THE_NEST_IC }}'
+          channelId: preview-${{ github.event.number }}
           projectId: the-nest-ic
