@@ -13,7 +13,7 @@
           "error",
           {
             "type": "attribute",
-            "prefix": "innovationCrib",
+            "prefix": "cribUi",
             "style": "camelCase"
           }
         ],
@@ -21,7 +21,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "innovation-crib",
+            "prefix": "crib-ui",
             "style": "kebab-case"
           }
         ]

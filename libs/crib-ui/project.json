@@ -2,7 +2,7 @@
   "name": "crib-ui",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/crib-ui/src",
-  "prefix": "innovation-crib",
+  "prefix": "crib-ui",
   "tags": [],
   "projectType": "library",
   "targets": {
@@ -69,12 +69,15 @@
         "outputDir": "dist/storybook/crib-ui",
         "configDir": "libs/crib-ui/.storybook",
         "browserTarget": "crib-ui:build-storybook",
-        "compodoc": false
+        "compodoc": false,
+        "styles": ["libs/crib-ui/.storybook/styles/styles.scss"]
+
       },
       "configurations": {
         "ci": {
           "quiet": true
         }
+        
       }
     },
     "test-storybook": {

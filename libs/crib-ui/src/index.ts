@@ -1,1 +1,1 @@
-export * from './lib/crib-ui/crib-ui.component';
+export * from './lib/layout/layout.component';
