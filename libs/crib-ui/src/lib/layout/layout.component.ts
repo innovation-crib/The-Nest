@@ -1,11 +1,11 @@
 import { Component, Directive, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppbarComponent } from './appbar/appbar.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @Component({
   selector: 'crib-ui-layout',
   standalone: true,
-  imports: [CommonModule, AppbarComponent],
+  imports: [CommonModule, MatToolbarModule],
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss'],
 })

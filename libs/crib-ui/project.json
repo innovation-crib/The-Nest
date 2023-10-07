@@ -70,7 +70,7 @@
         "configDir": "libs/crib-ui/.storybook",
         "browserTarget": "crib-ui:build-storybook",
         "compodoc": false,
-        "styles": ["libs/crib-ui/.storybook/styles/styles.scss"]
+        "styles": ["apps/the-nest/src/styles.scss"]
 
       },
       "configurations": {
@@ -78,7 +78,14 @@
           "quiet": true
         }
         
-      }
+      },
+      "compodoc": true,
+          "compodocArgs": [
+            "-e",
+            "json",
+            "-d",
+            "." 
+          ]
     },
     "test-storybook": {
       "executor": "nx:run-commands",

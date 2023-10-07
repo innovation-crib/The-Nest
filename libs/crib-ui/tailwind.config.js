@@ -16,4 +16,16 @@ module.exports = {
     extend: {},
   },
   plugins: [require("@tailwindcss/typography"),require("daisyui")],
+  safelist: [
+    'btn-primary',
+    'btn-secondary',
+    'btn-neutral',
+    'btn-accent',
+    'btn-info',
+    'btn-success',
+    'btn-warning',
+    'btn-error',
+    'btn-disabled',
+  ]
+
 };

@@ -1,59 +1,28 @@
-<ng-template #portal>
-  <ng-content select="[cribUiMenuItem]"></ng-content>
+<ng-template #Menu>
+  <!-- menu -->
 </ng-template>
 
-<div class="drawer">
-  <input
-    id="drawer-main"
-    type="checkbox"
-    class="drawer-toggle"
-    #drawerCheckbox
-  />
-  <div class="drawer-content flex flex-col">
-    <!-- Page content here -->
-    <crib-ui-appbar
-      [title]="title"
-      (menuClick)="drawerCheckbox.checked = !drawerCheckbox.checked"
-    ></crib-ui-appbar>
-    <!-- side menu on the left, main content right tailwind -->
-    <div class="flex mt-4 space-x-0 md:space-x-4 transition-all">
-      <div class="w-56 hidden md:block">
-        <!-- menu -->
-        <ul class="menu bg-base-200 shadow rounded-box">
-          <ng-container
-            [ngTemplateOutlet]="portal"
-            *ngIf="!drawerCheckbox.checked"
-          ></ng-container>
-        </ul>
-      </div>
-      <div class="flex-grow">
-        <div class="w-full min-h-full bg-base-200 shadow rounded-box p-5">
-          <ng-content></ng-content>
-        </div>
-      </div>
-      <div class="w-56 hidden xl:block">
-        <!-- menu -->
-      </div>
-    </div>
-    <div class="text-center text-sm text-neutral-content mt-2">
-      &copy; {{ year }} Innovation Crib B.V.
-    </div>
+<mat-toolbar color="primary" class="rounded">
+  <mat-toolbar-row>
+    <!-- innovation crib logo tailwind  -->
+    <span routerLink="/">{{ title }}</span>
+  </mat-toolbar-row>
+  <ng-content select="mat-toolbar-row"></ng-content>
+</mat-toolbar>
+
+<!-- tailwind; layout: left menu | main content | right menu;  -->
+
+<div class="flex">
+  <div class="hidden xl:flex flex-col bg-white rounded min-w-[56px]">
+    aaa
+    <ng-container *ngTemplateOutlet="Menu"> </ng-container>
   </div>
-  <div class="drawer-side">
-    <label
-      class="drawer-overlay"
-      (click)="drawerCheckbox.checked = !drawerCheckbox.checked"
-    ></label>
-    <ul
-      class="menu p-4 w-10/12 sm:w-80 min-h-full bg-base-200 text-base-content"
-    >
-      <!-- Sidebar content here -->
-      <ng-container
-        [ngTemplateOutlet]="portal"
-        *ngIf="drawerCheckbox.checked"
-      ></ng-container>
-    </ul>
+  <div class="grow flex justify-around">
+    <div class="">
+      <span>aa</span>
+      <ng-content> </ng-content>
+    </div>
   </div>
 </div>
 
-<!-- copyright at bottom of screen -->
+<ng-content> </ng-content>
