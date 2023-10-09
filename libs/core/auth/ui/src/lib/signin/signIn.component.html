@@ -1,0 +1,108 @@
+<!-- signin page -->
+
+<!-- tailwind for styling -->
+
+<div
+  class="flex flex-col items-center justify-center min-h-screen py-6 bg-gray-50 sm:px-6 lg:px-8"
+>
+  <div
+    class="flex flex-col items-center justify-center w-full max-w-md px-4 py-8 bg-white shadow-md sm:rounded-lg sm:px-10"
+  >
+    <div class="flex items-center justify-center">
+      <!-- origami bird svg -->
+      <svg
+        class="w-12 h-12 text-blue-500"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M15 19l-7-7 7-7"
+        ></path>
+      </svg>
+      <h2 class="ml-4 text-3xl font-extrabold leading-9 text-gray-900">
+        Sign in to your account
+      </h2>
+    </div>
+
+    <form class="mt-8" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="rounded-md shadow-sm">
+        <div>
+          <input
+            aria-label="Email address"
+            name="email"
+            type="email"
+            required
+            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5 disabled:opacity-50 disabled:cursor-not-allowed"
+            placeholder="Email address"
+            formControlName="email"
+          />
+        </div>
+        <div class="-mt-px">
+          <input
+            aria-label="Password"
+            name="password"
+            type="password"
+            required
+            class="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:shadow-outline-blue focus:border-blue-300 focus:z-10 sm:text-sm sm:leading-5 disabled:opacity-50 disabled:cursor-not-allowed"
+            placeholder="Password"
+            formControlName="password"
+          />
+        </div>
+      </div>
+
+      <!-- error message box -->
+      <div class="mt-4" *ngIf="errorMessage() as error">
+        <div class="font-medium text-red-600">{{ error }}</div>
+      </div>
+
+      <div class="mt-6 flex items-center justify-between">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+          type="submit"
+        >
+          Sign in
+        </button>
+        <button
+          class="bg-gray-200 hover:bg-gray-300 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center space-x-1 focus:outline-none focus:shadow-outline-blue focus:border-blue-300 transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+          type="button"
+          (click)="signInWithAzureAD()"
+        >
+          <!-- microsoft logo -->
+          <span class="fa fa-brands fa-microsoft"></span>
+          <span class="mr-2">Microsoft</span>
+        </button>
+      </div>
+
+      <div class="mt-6 flex items-center justify-between">
+        <div class="flex items-center">
+          <input
+            id="remember_me"
+            type="checkbox"
+            class="form-checkbox h-4 w-4 text-indigo-600 transition duration-150 ease-in-out disabled:opacity-50 disabled:cursor-not-allowed"
+            formControlName="rememberMe"
+          />
+          <label
+            for="remember_me"
+            class="ml-2 block text-sm leading-5 text-gray-900"
+          >
+            Remember me
+          </label>
+        </div>
+
+        <div class="text-sm leading-5">
+          <a
+            href="#"
+            class="font-medium text-indigo-600 hover:text-indigo-500 focus:outline-none focus:underline transition ease-in-out duration-150"
+          >
+            Forgot your password?
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

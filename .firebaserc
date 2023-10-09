@@ -1,15 +1,16 @@
 {
   "projects": {
-    "default": "the-nest-ic"
+    "default": "the-nest-dev",
+    "prod": "the-nest-ic"
   },
   "targets": {
     "the-nest-ic": {
       "hosting": {
-        "the-nest": [
-          "the-nest-ic"
-        ],
         "crib-ui": [
           "crib-ui"
+        ],
+        "the-nest": [
+          "the-nest-ic"
         ]
       }
     }
