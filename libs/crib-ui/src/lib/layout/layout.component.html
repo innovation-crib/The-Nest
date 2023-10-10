@@ -1,0 +1,28 @@
+<ng-template #Menu>
+  <!-- menu -->
+</ng-template>
+
+<mat-toolbar color="primary" class="rounded">
+  <mat-toolbar-row>
+    <!-- innovation crib logo tailwind  -->
+    <span routerLink="/">{{ title }}</span>
+  </mat-toolbar-row>
+  <ng-content select="mat-toolbar-row"></ng-content>
+</mat-toolbar>
+
+<!-- tailwind; layout: left menu | main content | right menu;  -->
+
+<div class="flex">
+  <div class="hidden xl:flex flex-col bg-white rounded min-w-[56px]">
+    aaa
+    <ng-container *ngTemplateOutlet="Menu"> </ng-container>
+  </div>
+  <div class="grow flex justify-around">
+    <div class="">
+      <span>aa</span>
+      <ng-content> </ng-content>
+    </div>
+  </div>
+</div>
+
+<ng-content> </ng-content>

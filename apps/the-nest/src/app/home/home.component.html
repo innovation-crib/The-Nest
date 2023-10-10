@@ -1,0 +1,45 @@
+<!-- home componet -->
+<!-- tailwind -->
+
+<ng-template #usermenu>
+  <!-- use cdkmenu -->
+  <ul
+    cdKMenu
+    class="menu bg-base-300 w-56 rounded-box z-50"
+    aria-labelledby="user-menu"
+  >
+    <li>
+      <a href="#" class="" cdkMenuItem>Your Profile</a>
+    </li>
+    <li>
+      <a href="#" class="" cdkMenuItem>Settings</a>
+    </li>
+    <li>
+      <button class="" (click)="signOut()" cdkMenuItem>Sign out</button>
+    </li>
+  </ul>
+</ng-template>
+
+<!-- app bar -->
+<div class="navbar bg-base-200">
+  <div class="flex-1">
+    <a [routerLink]="['/home']" class="btn btn-ghost normal-case text-xl"
+      >The Nest</a
+    >
+  </div>
+
+  <button
+    [cdkMenuTriggerFor]="usermenu"
+    CdkMenuTrigger
+    class="btn btn-ghost btn-circle avatar"
+    title="User menu"
+  >
+    <div class="w-10 rounded-full">
+      <img [src]="profilePicture()" />
+    </div>
+  </button>
+</div>
+
+<main class="container mx-auto">
+  <router-outlet></router-outlet>
+</main>

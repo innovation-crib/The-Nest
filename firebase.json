@@ -19,20 +19,30 @@
     "rules": "firebase/firestore.rules",
     "indexes": "firebase/firestore.indexes.json"
   },
-  "hosting": {
-    "public": "dist/apps/the-nest",
-    "ignore": [
-      "firebase.json",
-      "**/.*",
-      "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
-  },
+  "hosting": [
+    {
+      "target": "the-nest",
+      "public": "dist/apps/the-nest",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    },
+    {
+      "target": "crib-ui",
+      "public": "dist/storybook/crib-ui",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ],
   "storage": {
     "rules": "firebase/storage.rules"
   },
@@ -49,9 +59,7 @@
     "database": {
       "port": 9000
     },
-    "hosting": {
-      "port": 5000
-    },
+
     "pubsub": {
       "port": 8085
     },

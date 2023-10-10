@@ -14,7 +14,14 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@innovation-crib/core/auth/api": ["libs/core/auth/api/src/index.ts"],
+      "@innovation-crib/core/auth/domain": [
+        "libs/core/auth/domain/src/index.ts"
+      ],
+      "@innovation-crib/core/auth/ui": ["libs/core/auth/ui/src/index.ts"],
+      "@innovation-crib/crib-ui": ["libs/crib-ui/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
