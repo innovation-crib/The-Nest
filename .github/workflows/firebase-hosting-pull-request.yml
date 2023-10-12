@@ -7,7 +7,7 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
-    environment: 
+    environment:
       name: ${{ github.event.number }}-preview
       url: ${{ steps.deploy.outputs.details_url}}
     steps:
@@ -15,15 +15,17 @@ jobs:
       - uses: pnpm/action-setup@v2
         with:
           version: 8
-      - name: Use Node.js 
+      - name: Use Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 20
           cache: 'pnpm'
       - name: Install dependencies
         run: pnpm install
-      - name: Build
+      - name: Build the-nest
         run: pnpx nx build the-nest
+      - name: build crib ui storybook
+        run: pnpx nx build crib-ui:build-storybook
       - uses: FirebaseExtended/action-hosting-deploy@v0
         id: deploy
         with:
